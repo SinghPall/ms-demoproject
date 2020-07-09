@@ -1,0 +1,10 @@
+3. Product service which has exposed rest end point to know the price of diff product as per design Number
+@GetMapping(value = "/{designNumber}") and @GetMapping(value = "/{designNumber}")
+- it uses eureka client to get details from other service called Price
+ex :-
+    InstanceInfo instance = eurekaClient.getNextServerFromEureka("prices", false);
+		double price = restTemplate.getForObject(instance.getHomePageUrl() + url, Double.class);
+- it is registered with eureka for service discovery, below is properties file snapshot
+
+eureka.client.register-with-eureka=true
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka/
