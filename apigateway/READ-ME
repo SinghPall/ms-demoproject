@@ -1,0 +1,16 @@
+1. APIGateway is for main/first entry point of all the projects, its having dependency for Zuul(spring-cloud-starter-netflix-zuul) 
+and in properties file it is having service details for which it needs to manage the incoming traffic.
+ex : (
+#Zuul routes
+zuul.routes.products.path=/products/**
+zuul.routes.products.service-id=products
+zuul.routes.products.stripPrefix=false
+ 
+zuul.routes.prices.path=/prices/**
+zuul.routes.prices.service-id=prices
+zuul.routes.prices.stripPrefix=false 
+)
+- its main class is annotated with 
+@EnableZuulProxy (Zuul provides a single URL for all the instances of the Rest Service and does load balancing to 
+forward the requests to one of the instances in round robin fashion) and
+@EnableDiscoveryClient
