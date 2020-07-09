@@ -1,0 +1,9 @@
+2. Service Discovery : Having depenency as spring-cloud-starter-netflix-eureka-server
+- in property file having
+
+server.port=8761
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false
+logging.level.com.netflix.eureka=OFF
+logging.level.com.netflix.discovery=OFF
+- Its main class is enabled with @EnableEurekaServer
